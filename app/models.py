@@ -13,7 +13,8 @@ class News_Article:
 
     news_article_info = []
 
-    def __init__(self, title, description, urlToImage, content):
+    def __init__(self, id, title, description, urlToImage, content):
+        self.id = id
         self.title = title
         self.description = description
         self.urlToImage = urlToImage

@@ -1,0 +1,21 @@
+
+
+<!-- Content block -->
+{% block content %}
+
+<div class="container">
+
+    <!-- Poster background -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-lg-6 posterPath mx-auto">
+            <img src="{{news.urlToImage}}" >         
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <h3>{{ news.title }}</h3>
+
+            <p class="description">{{ news.description}}</p>
+            <p class = "content"> {{ news.content }} </p>
+        </div>
+    </div>
+</div>
+{% endblock %}  
