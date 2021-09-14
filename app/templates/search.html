@@ -2,7 +2,16 @@
 {% import 'macros.html' as macro %}
 
 {% block content %}
-
+<div class="navbar navbar-default bg-light" style="display:flex !important; justify-content: space-between;">
+    <a href="#">
+        <img class="mx-4" src="" height="50px" width="50px"> 
+    </a>
+    <h2 class="navbar-nav mx-3">
+        <a href="#" style="text-decoration:none; color:black; font-size:x-large; font-weight:bolder;">
+            NewsFlash
+        </a>
+    </h2>
+</div>
 <div class="container">
     <div class="row">
         <h3>Results</h3>
@@ -10,7 +19,7 @@
         <ul>
             {% for news_items in news_choice %}
             <li>{{ news_items.author}}</li>
-            <img src= '{{ news_items.urlToImage }}'>
+            <img src= '{{ news_items.urlToImage }}' height="500" width="500">
             {% endfor %}
         </ul>
     </div>
