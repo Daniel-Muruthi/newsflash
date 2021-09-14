@@ -1,29 +1,23 @@
-from flask import render_template, request, redirect,url_for
+from flask import render_template
 from app import app
-from .requests import getNews
+from .requests import get_news
 
-
-#Views
+# Views
 @app.route('/')
 def index():
+
     '''
     View root page function that returns the index page and its data
     '''
-    #Getting popular movies
+    title = 'Home - Welcome to The best Movie Review Website Online'
+    current_news = get_news()
 
-    # bbc_news = getNews('bbc-news')
+    return render_template('index.html', title = title, current_news =current_news)
 
-    webtitle="NewsFlash"
+@app.route('/movie/<int:movie_id>')
+def movie(movie_id):
 
-    generalNews = getNews()
-
-
-    return render_template('index.html', title = webtitle, generalNews = generalNews)
-
-@app.route('/news/<news_id>')
-def newsstory(news_id):
     '''
-    View newsflash page that returns news details page and its data
+    View movie page function that returns the movie details page and its data
     '''
-
-    return render_template('news.html', id = news_id)
+    return render_template('movie.html',id = movie_id)

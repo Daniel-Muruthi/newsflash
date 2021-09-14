@@ -1,31 +1,25 @@
-{% extends "base.html"%}
 
-<!-- Styles block -->
-{% block styles %}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
-{% endblock %}
 
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if title %}
-    <title>{{ title }}</title>
+    <title> {{ title }}</title>
     {% else %}
-    <title>Home - NewsFlash </title>
-    {% endif %}
+    <title> Welcome to the best Movie Review website </title>
+    {% endif %}   
 </head>
 <body>
-    {% block content%}
-    <h3>Enter media group</h3>
-    <form >
-        <input class="form-control" name="news_query" type="text" placeholder="enter media group eg bbc-news">
-        <input type="submit" class="btn btn-success" value="submit">
-    </form>
-    <p>{{ generalNews }}</p>
-    {% endblock %}
+    <!-- Popular news section  -->
+    <h3> Popular News</h3>
+    <ul>
+        {% for popular_movies in current_news %}
+        <li>{{ popular_movies.id}}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
+
+<h1> {{ message }} </h1>
