@@ -8,7 +8,7 @@
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
-    <title> Welcome to the best Movie Review website </title>
+    <title> Newsflash </title>
     {% endif %}   
 </head>
 <body>
@@ -25,12 +25,13 @@
     </div> -->
     <div class="container">
         <form>
-            <input type="text" name="news_query" placeholder="search for a movie" class="form-control">
-            <input type="submit" value="Submit" class="btn btn-default">
+            <input type="text" name="news_query" placeholder="enter search topic for news" class="form-control ">
+            <div class="my-2"></div>
+            <input type="submit" value="Submit" class="btn btn-success my-2">
         </form>
     </div>
     <!-- Popular news section  -->
-    <h3> Popular News</h3>
+    <h3 class="mx-auto text-center"> Popular News</h3>
     <ul>
         {% for popular_movies in current_news %}
         <li>{{ popular_movies.id}}</li>

@@ -1,28 +1,41 @@
-
+{% extends 'base.html'%}
 {% import 'macros.html' as macro %}
 
-{% block content %}
-<div class="navbar navbar-default bg-light" style="display:flex !important; justify-content: space-between;">
-    <a href="#">
-        <img class="mx-4" src="" height="50px" width="50px"> 
-    </a>
-    <h2 class="navbar-nav mx-3">
-        <a href="#" style="text-decoration:none; color:black; font-size:x-large; font-weight:bolder;">
-            NewsFlash
-        </a>
-    </h2>
-</div>
-<div class="container">
-    <div class="row">
-        <h3>Results</h3>
-        <hr>
-        <ul>
-            {% for news_items in news_choice %}
-            <li>{{ news_items.author}}</li>
-            <img src= '{{ news_items.urlToImage }}' height="500" width="500">
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Newsflash </title>
+    {% endif %} 
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <div style="display:flex;">
+            <div class="row col-sm-12 col-md-12 col-lg-12 card" style="float:none;">
+                <h3>Results</h3>
+                <hr>
+                {% for news_items in news_choice %}
+                <div style="display:flex; margin:2rem;" class="my-3">
+                    <img src= '{{ news_items.urlToImage }}' height="200" width="200">
+                    <div style="margin-left:2rem; margin-right:2rem;">
+                        <h4>{{ news_items.description}}</h4>
+                        <p>Author: {{news_items.author}}</p>
+                        <button class="btn btn-primary text-center"><a href='{{news_items.url}}' style="text-decoration:none; align-self:center; color:white;">Visit site</a></button>
+                    </div>
+                    <br>
+                </div>
 
-{% endblock %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+</html>
