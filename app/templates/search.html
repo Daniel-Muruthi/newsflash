@@ -5,10 +5,13 @@
 
 <div class="container">
     <div class="row">
-        <h3>Found {{ news }}</h3>
+        <h3>Results</h3>
         <hr>
         <ul>
-            {{ macro.displayNewsList(news)}}
+            {% for news_items in news_choice %}
+            <li>{{ news_items.author}}</li>
+            <img src= '{{ news_items.urlToImage }}'>
+            {% endfor %}
         </ul>
     </div>
 </div>

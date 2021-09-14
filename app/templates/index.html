@@ -12,6 +12,13 @@
     {% endif %}   
 </head>
 <body>
+    {% block content %}
+    <div class="container">
+        <form>
+            <input type="text" name="news_query" placeholder="search for a movie" class="form-control">
+            <input type="submit" value="Submit" class="btn btn-default">
+        </form>
+    </div>
     <!-- Popular news section  -->
     <h3> Popular News</h3>
     <ul>
@@ -19,7 +26,6 @@
         <li>{{ popular_movies.id}}</li>
         {% endfor %}
     </ul>
+    {% endblock%}
 </body>
 </html>
-
-<h1> {{ message }} </h1>

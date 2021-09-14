@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template,request, redirect, url_for
 from app import app
-from .requests import get_news
+from .requests import get_news, search_news
 
 # Views
 @app.route('/')
@@ -12,7 +12,13 @@ def index():
     title = 'Home - Welcome to The best Movie Review Website Online'
     current_news = get_news()
 
-    return render_template('index.html', title = title, current_news =current_news)
+    search_topic = request.args.get('news_query')
+    result_search_topic = search_news(search_topic)
+
+    if search_topic:
+        return render_template('search.html', news_choice=result_search_topic)
+    else:
+        return render_template('index.html', title = title, current_news =current_news)
 
 @app.route('/movie/<int:movie_id>')
 def movie(movie_id):
