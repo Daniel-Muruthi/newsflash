@@ -12,7 +12,7 @@ def get_news():
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = 'https://newsapi.org/v2/top-headlines/sources?apiKey=08db512f09b84c36a7d6f33d72d82fad'.format()
+    get_news_url = 'https://newsapi.org/v2/everything?q=all&sortBy=popularity&pageSize=50&page=1&apiKey=08db512f09b84c36a7d6f33d72d82fad'.format()
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -20,8 +20,8 @@ def get_news():
 
         get_news_results = None
 
-        if get_news_response['sources']:
-            get_news_results_list = get_news_response['sources']
+        if get_news_response['articles']:
+            get_news_results_list = get_news_response['articles']
             get_news_results = process_results(get_news_results_list)
 
 
@@ -39,15 +39,17 @@ def process_results(news_list):
     '''
     news_results = []
     for news_item in news_list:
-        id = news_item.get('id')
+        title = news_item.get('title')
         name = news_item.get('name')
         description = news_item.get('description')
         url = news_item.get('url')
-        category = news_item.get('category')
-        country = news_item.get('country')
+        urlToImage = news_item.get('urlToImage')
+        content = news_item.get('content')
+        author = news_item.get('author')
+        publishedAt = news_item.get('publishedAt')
 
         if id:
-            news_object = News(id,name,description,url,category,country)
+            news_object = News(title,name,description,url,urlToImage,content,author,publishedAt)
             news_results.append(news_object)
 
     return news_results
@@ -71,9 +73,10 @@ def process_every_results(news_list):
         urlToImage = news_item.get('urlToImage')
         content = news_item.get('content')
         author = news_item.get('author')
+        publishedAt = news_item.get('publishedAt')
 
         if id:
-            news_object = SearchNewsAll(title,name,description,url,urlToImage,content,author)
+            news_object = SearchNewsAll(title,name,description,url,urlToImage,content,author,publishedAt)
             news_results.append(news_object)
 
     return news_results

@@ -3,13 +3,15 @@ class News:
     News class to define News Objects
     '''
 
-    def __init__(self,id,name,description,url,category,country):
-        self.id =id
+    def __init__(self,title,name,description,url,urlToImage,content,author,publishedAt):
+        self.title =title
         self.name = name
         self.description = description
         self.url = url
-        self.category = category
-        self.country = country
+        self.urlToImage = urlToImage
+        self.content = content
+        self.author= author
+        self.publishedAt= publishedAt
 
 
 class SearchNewsAll:
@@ -18,7 +20,7 @@ class SearchNewsAll:
     """
     
 
-    def __init__(self,title,name,description,url,urlToImage,content,author):
+    def __init__(self,title,name,description,url,urlToImage,content,author,publishedAt):
         self.title =title
         self.name = name
         self.description = description
@@ -26,3 +28,4 @@ class SearchNewsAll:
         self.urlToImage = urlToImage
         self.content = content
         self.author= author
+        self.publishedAt= publishedAt
