@@ -45,9 +45,23 @@
                     </div>
                     <br>
                 </div>
+                
 
                 {% endfor %}
             </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+            <h2 class="text-center">News Sources</h2>
+            <hr>
+            {% for source in newsSources %}
+            <div class="card col-sm-4">
+                <h4><a href="{{source.url}}" style="text-decoration: none;">{{ source.name }}</a></h4>
+                <p>{{ source.description }}</p>
+            </div>
+            {% endfor %}
         </div>
     </div>
     {% endblock%}

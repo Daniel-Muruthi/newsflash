@@ -1,4 +1,4 @@
-from app.models.news import News, SearchNewsAll
+from app.models.news import News, NewsSources, SearchNewsAll
 import urllib.request, json
 
 # Getting api key
@@ -16,7 +16,7 @@ def get_news():
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = 'http://newsapi.org/v2/everything?q=all&sortBy=popularity&pageSize=50&page=1&apiKey=08db512f09b84c36a7d6f33d72d82fad'.format()
+    get_news_url = 'http://newsapi.org/v2/everything?q=all&sortBy=popularity&pageSize=25&page=1&apiKey=08db512f09b84c36a7d6f33d72d82fad'.format()
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -99,5 +99,35 @@ def search_news(topic):
         if news_details_response['articles']:
             get_news_results_list = news_details_response['articles']
             get_news_results = process_every_results(get_news_results_list)
+
+    return get_news_results
+
+def process_sources_results(news_list):
+
+    news_results=[]
+    for news_item in news_list:
+        id = news_item.get('id')
+        name = news_item.get('name')
+        description = news_item.get('description')
+        url = news_item.get('url')
+
+        if id:
+            news_object = NewsSources(id,name,description,url)
+            news_results.append(news_object)
+
+    return news_results
+
+def news_sources():
+    get_news_sources_url ='https://newsapi.org/v2/top-headlines/sources?apiKey=08db512f09b84c36a7d6f33d72d82fad'.format()
+
+    with urllib.request.urlopen(get_news_sources_url) as url:
+        news_details_data = url.read()
+        news_details_response = json.loads(news_details_data)
+
+        get_news_results = None
+
+        if news_details_response['sources']:
+            get_news_results_list = news_details_response['sources']
+            get_news_results = process_sources_results(get_news_results_list)
 
     return get_news_results

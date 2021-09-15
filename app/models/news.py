@@ -29,3 +29,12 @@ class SearchNewsAll:
         self.content = content
         self.author= author
         self.publishedAt= publishedAt
+
+
+class NewsSources:
+
+    def __init__(self, id, name, description, url):
+        self.id = id
+        self.name = name
+        self.description = description
+        self.url = url
