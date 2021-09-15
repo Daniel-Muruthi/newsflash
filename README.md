@@ -24,7 +24,7 @@ None observed so far
 ## Limitations
 There is a number of requests that you cannot go beyond while uding the NewsApi as it eventually leads to an error 429 and 503 and as such the link may not work for 24 hours
 
-![](/heroku.png)
+![screenshot](./heroku.png)
 
 
 
