@@ -10,6 +10,9 @@ Its a Flask web application that enables users to view and search for news from 
 
 ![screenshot2](app/static/images/heroku2.png)
 
+## News Sources
+
+![screenshot3](app/static/images/heroku3.png)
 ## Setup/Installation Requirements
 
 - Visual Studio Code
