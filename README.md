@@ -8,6 +8,8 @@
 
 Its a Flask web application that enables users to view and search for news from any media group. It displays latest popular news and offers a user the ability to search news based on categories eg bitcoin, sports etc.
 
+![screenshot2](app/static/images/heroku2.png)
+
 ## Setup/Installation Requirements
 
 - Visual Studio Code
