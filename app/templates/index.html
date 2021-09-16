@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
@@ -24,7 +25,7 @@
     </div> -->
     <div class="container">
         <form>
-            <input type="text" name="news_query" placeholder="enter search topic for news" class="form-control ">
+            <input type="text" name="news_query" placeholder="enter search topic for news eg finance or your preferred news source eg cnn" class="form-control ">
             <div class="my-2"></div>
             <input type="submit" value="Submit" class="btn btn-success my-2">
         </form>
@@ -33,13 +34,13 @@
     <div class="container">
         <div style="display:flex;">
             <div class="row col-sm-12 col-md-12 col-lg-12 card" style="float:none;">
-                <h2 class="text-center">Most Popular News</h2>
+                <h2 class="text-center">Top 10 Most Popular News</h2>
                 <hr>
                 {% for news_items in current_news %}
-                <div style="display:flex; margin:2rem;" class="my-3">
+                <div style="display:flex; margin:2rem;" class="col-sm-5 my-3">
                     <img src= '{{ news_items.urlToImage }}' height="200" width="200">
                     <div style="margin-left:2rem; margin-right:2rem;">
-                        <h4>{{ news_items.description}}</h4>
+                        <h4>{{ news_items.description | truncate(40)}}</h4>
                         <p>Author: {{news_items.author}} || posted at: {{ news_items.publishedAt }}</p>
                         <button class="btn btn-primary text-center"><a href='{{news_items.url}}' style="text-decoration:none; align-self:center; color:white;">Visit site</a></button>
                     </div>
@@ -54,12 +55,12 @@
     <hr>
     <div class="container">
         <div class="row col-sm-12 col-md-12 col-lg-12">
-            <h2 class="text-center">News Sources</h2>
+            <h2 class="text-center" id="newssource">News Sources</h2>
             <hr>
             {% for source in newsSources %}
-            <div class="card col-sm-4">
-                <h4><a href="{{source.url}}" style="text-decoration: none;">{{ source.name }}</a></h4>
-                <p>{{ source.description }}</p>
+            <div class="card col-sm-4" style="border: 1px solid white; box-shadow: 0px 0px 4px 1px rgb(230, 229, 229);">
+                <h4 class="text-center"><a href="{{source.url}}" style="text-decoration: none;">{{ source.name }}</a></h4>
+                <p>{{ source.description | truncate(90) }}</p>
             </div>
             {% endfor %}
         </div>
