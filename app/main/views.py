@@ -4,6 +4,7 @@ from ..requests import get_news, search_news, news_sources
 from . import main
 
 
+
 # Views
 
 
@@ -19,7 +20,10 @@ def index():
 
     newsSources = news_sources()
 
-    search_topic = request.args.get('news_query')
+    search_topic= request.args.get('news_query')
+    # inp_search = search_fmt.split(" ")
+    # search_topic = "+".join(inp_search)
+    
     result_search_topic = search_news(search_topic)
 
 

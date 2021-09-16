@@ -1,6 +1,6 @@
 # NewsFlash
 
-#### Its a news website that displays latest popular news and offers a user the ability to search news based on categories eg bitcoin, sports etc or based on your news source eg cnn, abc etc
+### Its a news website that displays latest popular news and offers a user the ability to search news based on categories eg bitcoin, sports etc or based on your news source eg cnn, abc etc
 
 #### By **Daniel Muruthi**
 

@@ -25,7 +25,7 @@
     </div> -->
     <div class="container">
         <form>
-            <input type="text" name="news_query" placeholder="enter search topic for news eg finance or your preferred news source eg cnn" class="form-control ">
+            <input type="text"  name="news_query" placeholder="enter search topic for news eg finance or your preferred news source eg cnn" class="form-control ">
             <div class="my-2" style="margin-top:1rem !important;"></div>
             <input type="submit" value="Submit" class="btn btn-success my-2">
         </form>
@@ -38,7 +38,7 @@
                 <hr>
                 {% for news_items in current_news %}
                 <div style="display:flex; margin:2rem;" class="col-sm-5 my-3">
-                    <img src= '{{ news_items.urlToImage }}' height="200" width="200">
+                    <img src= '{{ news_items.urlToImage }}' height="200" width="200" style="border-radius: 20px;">
                     <div style="margin-left:2rem; margin-right:2rem;">
                         <h4>{{ news_items.description | truncate(40)}}</h4>
                         <p>Author: {{news_items.author}} || posted at: {{ news_items.publishedAt }}</p>
