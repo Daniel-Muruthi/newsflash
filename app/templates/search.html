@@ -18,14 +18,14 @@
     <div class="container">
         <div style="display:flex;">
             <div class="row col-sm-12 col-md-12 col-lg-12 card" style="float:none;">
-                <h3>Results</h3>
+                <h3>Search Results</h3>
                 <hr>
                 {% for news_items in news_choice %}
-                <div style="display:flex; margin:2rem;" class="my-3">
-                    <img src= '{{ news_items.urlToImage }}' height="200" width="200">
+                <div style="display:flex; margin:2rem; border: 1px solid white; box-shadow: 0px 0px 4px 1px rgb(230, 229, 229); float:left; clear:right; " class="col-sm-5 my-3 align-items-stretch">
+                    <img src= '{{ news_items.urlToImage }}' height="180" width="180" style="border-radius:20px">
                     <div style="margin-left:2rem; margin-right:2rem;">
-                        <h4>{{ news_items.description }}</h4>
-                        <p>Author: {{news_items.author}} || posted at: {{ news_items.publishedAt }}</p>
+                        <h4>{{ news_items.description | truncate(88)}}</h4>
+                        <p>Author: {{news_items.author}} || posted at: {{ news_items.publishedAt | truncate(13) }}</p>
                         <button class="btn btn-primary text-center"><a href='{{news_items.url}}' style="text-decoration:none; align-self:center; color:white;">Visit site</a></button>
                     </div>
                     <br>
@@ -36,6 +36,11 @@
         </div>
     </div>
 
+    <div style="background-color: black; border:1px solid black; box-shadow: 0px 0px 4px 1px grey; text-align: center;">
+        <h3>
+            <a href="https://github.com/Daniel-Muruthi" style="text-decoration:none; color:white">www.danielmuruthi.com</a>
+        </h3>
+    </div>
     {% endblock %}
 </body>
 </html>
