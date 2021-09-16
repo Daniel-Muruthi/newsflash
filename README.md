@@ -8,11 +8,17 @@
 
 Its a Flask web application that enables users to view and search for news from any media group. It displays latest popular news and offers a user the ability to search news based on categories eg bitcoin, sports etc.
 
-![screenshot2](app/static/images/heroku2.png)
+![screenshot2](app/static/images/SCR.png)
 
 ## News Sources
 
-![screenshot3](app/static/images/heroku3.png)
+![screenshot3](app/static/images/SCR2.png)
+
+## Results
+
+#### results for espn/ESPN
+
+![scr3](app/static/images/SCR3.png)
 ## Setup/Installation Requirements
 
 - Visual Studio Code
